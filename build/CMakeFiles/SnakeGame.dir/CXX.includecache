@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/controller.cpp
-controller.h
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/controller.h
-iostream
--
-SDL.h
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/SDL.h
-snake.h
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/snake.h
-
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/controller.h
 snake.h
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/snake.h
@@ -27,6 +17,8 @@ iostream
 -
 SDL.h
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/SDL.h
+thread
+-
 
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/game.h
 random
@@ -40,24 +32,6 @@ renderer.h
 snake.h
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/snake.h
 
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/main.cpp
-iostream
--
-controller.h
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/controller.h
-game.h
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/game.h
-renderer.h
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/renderer.h
-
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/renderer.cpp
-renderer.h
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/renderer.h
-iostream
--
-string
--
-
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/renderer.h
 vector
 -
@@ -65,14 +39,6 @@ SDL.h
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/SDL.h
 snake.h
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/snake.h
-
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/snake.cpp
-snake.h
-/home/guimzago/snake/CppND-Capstone-Snake-Game/src/snake.h
-cmath
--
-iostream
--
 
 /home/guimzago/snake/CppND-Capstone-Snake-Game/src/snake.h
 vector

@@ -1,6 +1,8 @@
 #include "game.h"
 #include <iostream>
 #include "SDL.h"
+//me
+#include <thread>
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
@@ -23,10 +25,16 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake);
-    Update();
+    std::thread tController = std::thread(&Controller::HandleInput , controller, std::ref(running), std::ref(snake)); //creates thread for the controller
+    //thanks to this post: https://knowledge.udacity.com/questions/428737 for helping with the "std::ref"
+    //controller.HandleInput(running, snake);
+    tController.join();
+    //Update();
+    std::thread tUpdate = std::thread(&Game::Update, this);
+    tUpdate.join();
     renderer.Render(snake, food);
-
+    //std::thread tRenderer = std::thread(&Renderer::Render, renderer, snake, food);
+    //tRenderer.join();
     frame_end = SDL_GetTicks();
 
     // Keep track of how long each loop through the input/update/render cycle
@@ -47,10 +55,16 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     if (frame_duration < target_frame_duration) {
       SDL_Delay(target_frame_duration - frame_duration);
     }
+    
+    
   }
 }
 
+//me - talvez aqui tenha que ter um t.join, ou em algum lugar
+//try to make PlaceFood a thread
+//std::thread t(threadFunctionEven); //creates thread
 void Game::PlaceFood() {
+  std::this_thread::sleep_for(std::chrono::milliseconds(1));
   int x, y;
   while (true) {
     x = random_w(engine);
@@ -76,7 +90,10 @@ void Game::Update() {
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
     score++;
+    //me
+    //std::thread t(&Game::PlaceFood, this); //creates thread
     PlaceFood();
+    //t.join(); //wait thread complete
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
