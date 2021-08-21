@@ -19,21 +19,25 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
         case SDLK_UP:
           ChangeDirection(snake, Snake::Direction::kUp,
                           Snake::Direction::kDown);
+                          snake.speed = 1; //test speed
           break;
 
         case SDLK_DOWN:
           ChangeDirection(snake, Snake::Direction::kDown,
                           Snake::Direction::kUp);
+                          snake.speed = 1;
           break;
 
         case SDLK_LEFT:
           ChangeDirection(snake, Snake::Direction::kLeft,
                           Snake::Direction::kRight);
+                          snake.speed = 1;
           break;
 
         case SDLK_RIGHT:
           ChangeDirection(snake, Snake::Direction::kRight,
                           Snake::Direction::kLeft);
+                          snake.speed = 1;
           break;
       }
     }

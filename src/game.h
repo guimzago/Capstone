@@ -14,10 +14,18 @@ class Game {
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
+  float GetHeadX() const;
+  float GetHeadY() const;
 
  private:
   Snake snake;
   SDL_Point food;
+
+  //test
+  SDL_Point obstacle;
+  void PlaceObstacle();
+  SDL_Point maze_wall;
+  void PlaceMaze();
 
   std::random_device dev;
   std::mt19937 engine;

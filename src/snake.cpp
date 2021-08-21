@@ -1,13 +1,15 @@
 #include "snake.h"
 #include <cmath>
 #include <iostream>
+//me
+#include "SDL.h"
 
-void Snake::Update() {
+void Snake::Update(SDL_Point maze) {
   SDL_Point prev_cell{
       static_cast<int>(head_x),
       static_cast<int>(
           head_y)};  // We first capture the head's cell before updating.
-  UpdateHead();
+  UpdateHead(maze);
   SDL_Point current_cell{
       static_cast<int>(head_x),
       static_cast<int>(head_y)};  // Capture the head's cell after updating.
@@ -15,26 +17,42 @@ void Snake::Update() {
   // Update all of the body vector items if the snake head has moved to a new
   // cell.
   if (current_cell.x != prev_cell.x || current_cell.y != prev_cell.y) {
-    UpdateBody(current_cell, prev_cell);
+    //UpdateBody(current_cell, prev_cell);
   }
 }
-
-void Snake::UpdateHead() {
+//e é aqui que podemos passar como um shared pointer a localização do maze
+void Snake::UpdateHead(SDL_Point maze_wall) {
   switch (direction) {
     case Direction::kUp:
-      head_y -= speed;
+      if (((head_y-1)==maze_wall.y) && (head_x==maze_wall.x)){
+      head_y = head_y; //nop
+      }
+      else head_y -= speed;
+      speed = 0;
       break;
 
     case Direction::kDown:
-      head_y += speed;
+      if (((head_y+1)==maze_wall.y) && (head_x==maze_wall.x)){
+        head_y = head_y; //nop
+      }
+      else head_y += speed;
+      speed = 0;
       break;
 
     case Direction::kLeft:
-      head_x -= speed;
+    if (((head_x-1)==maze_wall.x) && (head_y==maze_wall.y)){
+      head_x = head_x;
+    }
+    else head_x -= speed;
+      speed = 0;
       break;
 
     case Direction::kRight:
-      head_x += speed;
+    if (((head_x+1)==maze_wall.x) && (head_y==maze_wall.y)){
+      head_x = head_x;
+    }
+    else head_x += speed;
+      speed = 0;
       break;
   }
 
@@ -52,6 +70,7 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
     body.erase(body.begin());
   } else {
     growing = false;
+    //test - doubles the size
     size++;
   }
 

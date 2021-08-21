@@ -14,7 +14,8 @@ class Snake {
         head_x(grid_width / 2),
         head_y(grid_height / 2) {}
 
-  void Update();
+  //void Update();
+  void Update(SDL_Point maze);
 
   void GrowBody();
   bool SnakeCell(int x, int y);
@@ -24,12 +25,13 @@ class Snake {
   float speed{0.1f};
   int size{1};
   bool alive{true};
-  float head_x;
-  float head_y;
+  int head_x;
+  int head_y;
   std::vector<SDL_Point> body;
 
  private:
-  void UpdateHead();
+  //void UpdateHead();
+  void UpdateHead(SDL_Point maze_wall);
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
   bool growing{false};

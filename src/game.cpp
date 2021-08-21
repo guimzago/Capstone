@@ -10,6 +10,8 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
   PlaceFood();
+  PlaceObstacle();
+  PlaceMaze();
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -28,11 +30,11 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     std::thread tController = std::thread(&Controller::HandleInput , controller, std::ref(running), std::ref(snake)); //creates thread for the controller
     //thanks to this post: https://knowledge.udacity.com/questions/428737 for helping with the "std::ref"
     //controller.HandleInput(running, snake);
-    tController.join();
+    
     //Update();
     std::thread tUpdate = std::thread(&Game::Update, this);
-    tUpdate.join();
-    renderer.Render(snake, food);
+    
+    renderer.Render(snake, food, obstacle, maze_wall);
     //std::thread tRenderer = std::thread(&Renderer::Render, renderer, snake, food);
     //tRenderer.join();
     frame_end = SDL_GetTicks();
@@ -44,7 +46,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
     // After every second, update the window title.
     if (frame_end - title_timestamp >= 1000) {
-      renderer.UpdateWindowTitle(score, frame_count);
+      renderer.UpdateWindowTitle(score, frame_count, snake.head_x, snake.head_y); //test
       frame_count = 0;
       title_timestamp = frame_end;
     }
@@ -55,16 +57,12 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     if (frame_duration < target_frame_duration) {
       SDL_Delay(target_frame_duration - frame_duration);
     }
-    
-    
+    tController.join();
+    tUpdate.join();
   }
 }
 
-//me - talvez aqui tenha que ter um t.join, ou em algum lugar
-//try to make PlaceFood a thread
-//std::thread t(threadFunctionEven); //creates thread
 void Game::PlaceFood() {
-  std::this_thread::sleep_for(std::chrono::milliseconds(1));
   int x, y;
   while (true) {
     x = random_w(engine);
@@ -79,10 +77,41 @@ void Game::PlaceFood() {
   }
 }
 
+//test
+void Game::PlaceObstacle() {
+  int x, y;
+  while (true) {
+    x = random_w(engine);
+    y = random_h(engine);
+    // Check that the location is not occupied by a snake item before placing
+    // food.
+    if (!snake.SnakeCell(x, y) && (x!=food.x) && (y!=food.y)) {
+      obstacle.x = x;
+      obstacle.y = y;
+      return;
+    }
+  }
+}
+//test
+void Game::PlaceMaze() {
+  int x, y;
+  while (true) {
+    x = random_w(engine);
+    y = random_h(engine);
+    // Check that the location is not occupied by a snake item before placing
+    // food.
+    if (!snake.SnakeCell(x, y) && (x!=food.x) && (y!=food.y) && (x!=obstacle.x) && (y!=obstacle.y)) {
+      maze_wall.x = x;
+      maze_wall.y = y;
+      return;
+    }
+  }
+}
+
 void Game::Update() {
   if (!snake.alive) return;
 
-  snake.Update();
+  snake.Update(maze_wall); //chama snake update aqui, mas
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
@@ -91,14 +120,25 @@ void Game::Update() {
   if (food.x == new_x && food.y == new_y) {
     score++;
     //me
-    //std::thread t(&Game::PlaceFood, this); //creates thread
     PlaceFood();
-    //t.join(); //wait thread complete
+    PlaceObstacle(); //test - need to see later what condition pops a new obstacle
+    PlaceMaze();
     // Grow snake and increase speed.
     snake.GrowBody();
-    snake.speed += 0.02;
+    //test
+    //snake.speed += 0.02;
   }
+
+  //test Check if there's obstacle over here
+  if (obstacle.x == new_x && obstacle.y == new_y) {
+    //this ends the game
+    snake.alive = false;
+  }
+
 }
 
 int Game::GetScore() const { return score; }
 int Game::GetSize() const { return snake.size; }
+
+float Game::GetHeadX() const { return snake.head_x;}
+float Game::GetHeadY() const { return snake.head_y;}
