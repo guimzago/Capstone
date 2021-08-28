@@ -3,6 +3,8 @@
 
 #include <vector>
 #include "SDL.h"
+#include <memory>
+#include <random>
 
 class Snake {
  public:
@@ -28,6 +30,7 @@ class Snake {
   int head_x;
   int head_y;
   std::vector<SDL_Point> body;
+  //std::shared_ptr<SDL_Point> _location; 
 
  private:
   //void UpdateHead();
@@ -37,6 +40,30 @@ class Snake {
   bool growing{false};
   int grid_width;
   int grid_height;
+};
+
+class Enemy {
+  public:
+  //constructor
+  Enemy(int location_x, int location_y) {
+    _location.x = location_x;
+    _location.y = location_y;
+  };
+  Enemy(SDL_Point location) {
+    _location = location;
+  } //another constructor
+  SDL_Point _location;
+  SDL_Point GetLocation() {return _location;};
+/*
+  std::random_device dev;
+  std::mt19937 engine;
+  std::uniform_int_distribution<int> random_w;
+  std::uniform_int_distribution<int> random_h;
+*/
+  //poderia usar um vector de SDL_Points para a location
+
+  private:
+  
 };
 
 #endif

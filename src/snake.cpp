@@ -9,6 +9,9 @@ void Snake::Update(SDL_Point maze) {
       static_cast<int>(head_x),
       static_cast<int>(
           head_y)};  // We first capture the head's cell before updating.
+  //SDL_Point test = *_location;
+  //_location->x = head_x;
+  //location->y = head_y;        
   UpdateHead(maze);
   SDL_Point current_cell{
       static_cast<int>(head_x),
@@ -96,3 +99,29 @@ bool Snake::SnakeCell(int x, int y) {
   }
   return false;
 }
+/*
+void Enemy::PlaceEnemy() {
+  int x, y;
+  while (true) {
+    x = random_w(engine);
+    y = random_h(engine);
+
+    _enemy.emplace_back(Enemy(x,y));
+    // Check that the location is not occupied by a snake item before placing
+    // food.
+   /* if (!snake.SnakeCell(x, y)) {
+      food.x = x;
+      food.y = y;
+      return;
+    }
+  }/*
+/*
+  int x = 1;
+    int y = 2;
+    _enemy.emplace_back(Enemy(1,2));
+    
+    SDL_Point ponto {4,5};
+    _enemy.emplace_back(ponto);
+
+}*/
+

@@ -12,7 +12,7 @@ class Renderer {
   ~Renderer();
 
   //void Render(Snake const snake, SDL_Point const &food, SDL_Point const &obstacle);
-  void Render(Snake const snake, SDL_Point const &food, SDL_Point const &obstacle, SDL_Point const &maze);
+  void Render(Snake const snake, SDL_Point const &food, SDL_Point const &obstacle, SDL_Point const &maze, std::vector<Enemy> enemy);
   //void UpdateWindowTitle(int score, int fps);
   void UpdateWindowTitle(int score, int fps, float headx, float heady);
 

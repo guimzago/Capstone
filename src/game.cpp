@@ -34,7 +34,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     //Update();
     std::thread tUpdate = std::thread(&Game::Update, this);
     
-    renderer.Render(snake, food, obstacle, maze_wall);
+    renderer.Render(snake, food, obstacle, maze_wall, _enemy);
     //std::thread tRenderer = std::thread(&Renderer::Render, renderer, snake, food);
     //tRenderer.join();
     frame_end = SDL_GetTicks();
@@ -125,16 +125,25 @@ void Game::Update() {
     PlaceMaze();
     // Grow snake and increase speed.
     snake.GrowBody();
-    //test
-    //snake.speed += 0.02;
+
+    PlaceEnemy();
+    //test to print vector every enemy
+    for (auto i: _enemy){
+      std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
+    }
   }
 
   //test Check if there's obstacle over here
-  if (obstacle.x == new_x && obstacle.y == new_y) {
+  /*if (obstacle.x == new_x && obstacle.y == new_y) {
     //this ends the game
     snake.alive = false;
-  }
-
+  }*/
+  for (auto i: _enemy){
+      //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
+      if ((i._location.x == new_x) && (i._location.y == new_y)){
+        snake.alive = false;
+      }
+    }
 }
 
 int Game::GetScore() const { return score; }
@@ -142,3 +151,16 @@ int Game::GetSize() const { return snake.size; }
 
 float Game::GetHeadX() const { return snake.head_x;}
 float Game::GetHeadY() const { return snake.head_y;}
+
+void Game::PlaceEnemy() {
+  int x, y;
+  while (true) {
+    x = random_w(engine);
+    y = random_h(engine);
+
+    if (!snake.SnakeCell(x, y)) {
+      _enemy.emplace_back(Enemy(x,y));
+      return;
+    }
+  }
+}

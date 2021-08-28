@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 
+//me
+#include "game.h"
+
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
                    const std::size_t grid_width, const std::size_t grid_height)
@@ -39,7 +42,7 @@ Renderer::~Renderer() {
 }
 
 //test - render obstacle
-void Renderer::Render(Snake const snake, SDL_Point const &food, SDL_Point const &obstacle, SDL_Point const &maze) {
+void Renderer::Render(Snake const snake, SDL_Point const &food, SDL_Point const &obstacle, SDL_Point const &maze, std::vector<Enemy> enemy) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -61,10 +64,23 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, SDL_Point const 
   SDL_RenderFillRect(sdl_renderer, &block);
 
   // Render obstacle
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0xFF, 0xFF);
+/*  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0xFF, 0xFF);
   block.x = maze.x * block.w;
   block.y = maze.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
+*/
+  // Render obstacle
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0xFF, 0xFF);
+      for (auto i: enemy){
+      //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
+        block.x = i._location.x * block.w;
+        block.y = i._location.y * block.h;
+        //block.x = maze.x * block.w;
+        //block.y = maze.y * block.h;
+        SDL_RenderFillRect(sdl_renderer, &block);
+    }
+
+  
 
   // Render snake's body
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);

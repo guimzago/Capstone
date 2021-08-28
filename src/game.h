@@ -17,9 +17,13 @@ class Game {
   float GetHeadX() const;
   float GetHeadY() const;
 
+  std::vector<Enemy> _enemy;
+
  private:
   Snake snake;
   SDL_Point food;
+  //testing class enemy
+  
 
   //test
   SDL_Point obstacle;
@@ -36,6 +40,7 @@ class Game {
 
   void PlaceFood();
   void Update();
+  void PlaceEnemy();
 };
 
 #endif
