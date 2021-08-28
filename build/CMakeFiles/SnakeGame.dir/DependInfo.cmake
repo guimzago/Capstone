@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/guimzago/snake/CppND-Capstone-Snake-Game/src/controller.cpp" "/home/guimzago/snake/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/controller.cpp.o"
-  "/home/guimzago/snake/CppND-Capstone-Snake-Game/src/game.cpp" "/home/guimzago/snake/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/game.cpp.o"
-  "/home/guimzago/snake/CppND-Capstone-Snake-Game/src/main.cpp" "/home/guimzago/snake/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/main.cpp.o"
-  "/home/guimzago/snake/CppND-Capstone-Snake-Game/src/renderer.cpp" "/home/guimzago/snake/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/renderer.cpp.o"
-  "/home/guimzago/snake/CppND-Capstone-Snake-Game/src/snake.cpp" "/home/guimzago/snake/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/snake.cpp.o"
+  "/home/guimzago/snake/Capstone/src/controller.cpp" "/home/guimzago/snake/Capstone/build/CMakeFiles/SnakeGame.dir/src/controller.cpp.o"
+  "/home/guimzago/snake/Capstone/src/game.cpp" "/home/guimzago/snake/Capstone/build/CMakeFiles/SnakeGame.dir/src/game.cpp.o"
+  "/home/guimzago/snake/Capstone/src/main.cpp" "/home/guimzago/snake/Capstone/build/CMakeFiles/SnakeGame.dir/src/main.cpp.o"
+  "/home/guimzago/snake/Capstone/src/renderer.cpp" "/home/guimzago/snake/Capstone/build/CMakeFiles/SnakeGame.dir/src/renderer.cpp.o"
+  "/home/guimzago/snake/Capstone/src/snake.cpp" "/home/guimzago/snake/Capstone/build/CMakeFiles/SnakeGame.dir/src/snake.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

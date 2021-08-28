@@ -18,7 +18,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "",
 			"projects" : 
 			[
 				{
@@ -38,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SnakeGame::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SnakeGame-Debug-43497b71061882675aa4.json",
+					"jsonFile" : "target-SnakeGame-09e0f606f2183bbaac42.json",
 					"name" : "SnakeGame",
 					"projectIndex" : 0
 				}
@@ -48,8 +48,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/guimzago/snake/CppND-Capstone-Snake-Game/build",
-		"source" : "/home/guimzago/snake/CppND-Capstone-Snake-Game"
+		"build" : "/home/guimzago/snake/Capstone/build",
+		"source" : "/home/guimzago/snake/Capstone"
 	},
 	"version" : 
 	{

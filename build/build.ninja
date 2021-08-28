@@ -34,7 +34,7 @@ include rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/guimzago/snake/CppND-Capstone-Snake-Game/build && /usr/bin/cmake -S/home/guimzago/snake/CppND-Capstone-Snake-Game -B/home/guimzago/snake/CppND-Capstone-Snake-Game/build
+  COMMAND = cd /home/guimzago/snake/Capstone/build && /usr/bin/cmake -S/home/guimzago/snake/Capstone -B/home/guimzago/snake/Capstone/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -46,7 +46,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/guimzago/snake/CppND-Capstone-Snake-Game/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/guimzago/snake/Capstone/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -122,7 +122,7 @@ build SnakeGame: CXX_EXECUTABLE_LINKER__SnakeGame CMakeFiles/SnakeGame.dir/src/m
 # =============================================================================
 
 #############################################
-# Folder: /home/guimzago/snake/CppND-Capstone-Snake-Game/build
+# Folder: /home/guimzago/snake/Capstone/build
 
 build all: phony SnakeGame
 

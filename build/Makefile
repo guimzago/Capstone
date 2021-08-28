@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/guimzago/snake/CppND-Capstone-Snake-Game
+CMAKE_SOURCE_DIR = /home/guimzago/snake/Capstone
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/guimzago/snake/CppND-Capstone-Snake-Game/build
+CMAKE_BINARY_DIR = /home/guimzago/snake/Capstone/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guimzago/snake/CppND-Capstone-Snake-Game/build/CMakeFiles /home/guimzago/snake/CppND-Capstone-Snake-Game/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/guimzago/snake/Capstone/build/CMakeFiles /home/guimzago/snake/Capstone/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guimzago/snake/CppND-Capstone-Snake-Game/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/guimzago/snake/Capstone/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
