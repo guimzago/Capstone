@@ -108,6 +108,8 @@ void Game::PlaceMaze() {
   }
 }
 
+
+
 void Game::Update() {
   if (!snake.alive) return;
 
@@ -121,12 +123,13 @@ void Game::Update() {
     score++;
     //me
     PlaceFood();
-    PlaceObstacle(); //test - need to see later what condition pops a new obstacle
-    PlaceMaze();
+    //PlaceObstacle(); //test - need to see later what condition pops a new obstacle
+    //PlaceMaze();
     // Grow snake and increase speed.
     snake.GrowBody();
 
     PlaceEnemy();
+    PlaceWall();
     //test to print vector every enemy
     for (auto i: _enemy){
       std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
@@ -160,6 +163,21 @@ void Game::PlaceEnemy() {
 
     if (!snake.SnakeCell(x, y)) {
       _enemy.emplace_back(Enemy(x,y));
+      return;
+    }
+  }
+}
+
+void Game::PlaceWall() {
+  int x, y;
+  while (true) {
+    x = random_w(engine);
+    y = random_h(engine);
+
+    SDL_Point wall_point = {x,y};
+
+    if (!snake.SnakeCell(x, y)) {
+      _wall.emplace_back(wall_point);
       return;
     }
   }

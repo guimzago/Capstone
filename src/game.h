@@ -30,6 +30,7 @@ class Game {
   void PlaceObstacle();
   SDL_Point maze_wall;
   void PlaceMaze();
+  std::vector<SDL_Point> _wall;
 
   std::random_device dev;
   std::mt19937 engine;
@@ -41,6 +42,7 @@ class Game {
   void PlaceFood();
   void Update();
   void PlaceEnemy();
+  void PlaceWall();
 };
 
 #endif
