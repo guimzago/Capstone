@@ -10,16 +10,6 @@
 snake.h
 /home/guimzago/snake/Capstone/src/snake.h
 
-/home/guimzago/snake/Capstone/src/game.cpp
-game.h
-/home/guimzago/snake/Capstone/src/game.h
-iostream
--
-SDL.h
-/home/guimzago/snake/Capstone/src/SDL.h
-thread
--
-
 /home/guimzago/snake/Capstone/src/game.h
 random
 -
@@ -31,6 +21,16 @@ renderer.h
 /home/guimzago/snake/Capstone/src/renderer.h
 snake.h
 /home/guimzago/snake/Capstone/src/snake.h
+
+/home/guimzago/snake/Capstone/src/renderer.cpp
+renderer.h
+/home/guimzago/snake/Capstone/src/renderer.h
+iostream
+-
+string
+-
+game.h
+/home/guimzago/snake/Capstone/src/game.h
 
 /home/guimzago/snake/Capstone/src/renderer.h
 vector
