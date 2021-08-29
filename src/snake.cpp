@@ -4,7 +4,7 @@
 //me
 #include "SDL.h"
 
-void Snake::Update(SDL_Point maze) {
+void Snake::Update(std::vector<SDL_Point> maze) {
   SDL_Point prev_cell{
       static_cast<int>(head_x),
       static_cast<int>(
@@ -12,7 +12,8 @@ void Snake::Update(SDL_Point maze) {
   //SDL_Point test = *_location;
   //_location->x = head_x;
   //location->y = head_y;        
-  UpdateHead(maze);
+  //UpdateHead(maze);
+  UpdatePosition(maze);
   SDL_Point current_cell{
       static_cast<int>(head_x),
       static_cast<int>(head_y)};  // Capture the head's cell after updating.
@@ -106,7 +107,7 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
         }
       }
     if (!cant_move) {
-      head_y -= speed;
+      head_x -= speed;
       speed = 0;
     }
     break;
@@ -121,7 +122,7 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
         }
       }
     if (!cant_move) {
-      head_y += speed;
+      head_x += speed;
       speed = 0;
     }
     break;

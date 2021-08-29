@@ -113,8 +113,8 @@ void Game::PlaceMaze() {
 void Game::Update() {
   if (!snake.alive) return;
 
-  snake.Update(maze_wall); //chama snake update aqui, mas
-
+  //snake.Update(maze_wall); //chama snake update aqui, mas
+  snake.Update(_wall); //chama snake update aqui, mas
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
@@ -141,12 +141,15 @@ void Game::Update() {
     //this ends the game
     snake.alive = false;
   }*/
+  //verifies if its in the same place as an enemy
   for (auto i: _enemy){
       //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
       if ((i._location.x == new_x) && (i._location.y == new_y)){
         snake.alive = false;
       }
     }
+
+
 }
 
 int Game::GetScore() const { return score; }
