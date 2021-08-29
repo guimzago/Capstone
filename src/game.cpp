@@ -34,7 +34,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     //Update();
     std::thread tUpdate = std::thread(&Game::Update, this);
     
-    renderer.Render(snake, food, obstacle, maze_wall, _enemy);
+    renderer.Render(snake, food, obstacle, _wall, _enemy);
     //std::thread tRenderer = std::thread(&Renderer::Render, renderer, snake, food);
     //tRenderer.join();
     frame_end = SDL_GetTicks();
