@@ -64,6 +64,75 @@ void Snake::UpdateHead(SDL_Point maze_wall) {
   head_y = fmod(head_y + grid_height, grid_height);
 }
 
+//e é aqui que podemos passar como um shared pointer a localização do maze
+void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
+  static bool cant_move;
+  switch (direction) {
+    case Direction::kUp:
+      cant_move = false;
+      for (auto i: maze_wall){
+      //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
+        if (((head_y-1)==i.y) && (head_x==i.x)){
+          cant_move = true; 
+        }
+      }
+    if (!cant_move) {
+      head_y -= speed;
+      speed = 0;
+    }
+    break;
+
+    case Direction::kDown:
+    cant_move = false;
+      for (auto i: maze_wall){
+        //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
+        if (((head_y+1)==i.y) && (head_x==i.x)){
+          cant_move = true; 
+        }
+      }
+    if (!cant_move) {
+      head_y += speed;
+      speed = 0;
+    }
+    break;
+
+
+    case Direction::kLeft:
+    cant_move = false;
+      for (auto i: maze_wall){
+        //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
+        if (((head_x-1)==i.x) && (head_y==i.y)){
+          cant_move = true; 
+        }
+      }
+    if (!cant_move) {
+      head_y -= speed;
+      speed = 0;
+    }
+    break;
+
+
+    case Direction::kRight:
+    cant_move = false;
+      for (auto i: maze_wall){
+        //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
+        if (((head_x+1)==i.x) && (head_y==i.y)){
+          cant_move = true; 
+        }
+      }
+    if (!cant_move) {
+      head_y += speed;
+      speed = 0;
+    }
+    break;
+  }
+
+  // Wrap the Snake around to the beginning if going off of the screen.
+  head_x = fmod(head_x + grid_width, grid_width);
+  head_y = fmod(head_y + grid_height, grid_height);
+}
+
+
 void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) {
   // Add previous head location to vector
   body.push_back(prev_head_cell);
