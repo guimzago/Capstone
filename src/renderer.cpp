@@ -57,19 +57,7 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, SDL_Point const 
   block.y = food.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
 
-  // Render obstacle
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
-  block.x = obstacle.x * block.w;
-  block.y = obstacle.y * block.h;
-  SDL_RenderFillRect(sdl_renderer, &block);
-
-  // Render obstacle
-/*  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0xFF, 0xFF);
-  block.x = maze.x * block.w;
-  block.y = maze.y * block.h;
-  SDL_RenderFillRect(sdl_renderer, &block);
-*/
-  // Render obstacle
+  // Render obstacles (maze)
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
       for (auto i: enemy){
       //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
@@ -90,15 +78,6 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, SDL_Point const 
         SDL_RenderFillRect(sdl_renderer, &block);
     } 
   
-
-  // Render snake's body
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-  for (SDL_Point const &point : snake.body) {
-    block.x = point.x * block.w;
-    block.y = point.y * block.h;
-    SDL_RenderFillRect(sdl_renderer, &block);
-  }
-
   // Render snake's head
   block.x = static_cast<int>(snake.head_x) * block.w;
   block.y = static_cast<int>(snake.head_y) * block.h;

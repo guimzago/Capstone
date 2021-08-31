@@ -16,8 +16,6 @@ class Snake {
         head_x(grid_width / 2),
         head_y(grid_height / 2) {}
 
-  //void Update();
-  //void Update(SDL_Point maze);
   void Update(std::vector<SDL_Point> maze);
   void GrowBody();
   bool SnakeCell(int x, int y);
@@ -30,12 +28,8 @@ class Snake {
   int head_x;
   int head_y;
   std::vector<SDL_Point> body;
-  //std::shared_ptr<SDL_Point> _location; 
 
  private:
-  //void UpdateHead();
-  void UpdateHead(SDL_Point maze_wall);
-  void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
   void UpdatePosition(std::vector<SDL_Point> maze_wall);
   
   bool growing{false};
@@ -55,16 +49,7 @@ class Enemy {
   } //another constructor
   SDL_Point _location;
   SDL_Point GetLocation() {return _location;};
-/*
-  std::random_device dev;
-  std::mt19937 engine;
-  std::uniform_int_distribution<int> random_w;
-  std::uniform_int_distribution<int> random_h;
-*/
-  //poderia usar um vector de SDL_Points para a location
-
   private:
-  
 };
 
 #endif

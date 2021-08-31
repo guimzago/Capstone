@@ -22,8 +22,6 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
-  //testing class enemy
-  
 
   //test
   SDL_Point obstacle;
