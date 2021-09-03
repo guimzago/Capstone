@@ -42,7 +42,7 @@ Renderer::~Renderer() {
 }
 
 //test - render obstacle
-void Renderer::Render(Snake const snake, SDL_Point const &food, SDL_Point const &obstacle, std::vector<SDL_Point> wall, std::vector<Enemy> enemy) {
+void Renderer::Render(Snake const snake, Snake const snake2, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -57,24 +57,18 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, SDL_Point const 
   block.y = food.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
 
-  // Render obstacles (maze)
+  // Render enemies
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
       for (auto i: enemy){
-      //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
         block.x = i._location.x * block.w;
         block.y = i._location.y * block.h;
-        //block.x = maze.x * block.w;
-        //block.y = maze.y * block.h;
         SDL_RenderFillRect(sdl_renderer, &block);
     }
-
+  // Render maze
   SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x00, 0xFF, 0xFF);
       for (auto i: wall){
-      //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
         block.x = i.x * block.w;
         block.y = i.y * block.h;
-        //block.x = maze.x * block.w;
-        //block.y = maze.y * block.h;
         SDL_RenderFillRect(sdl_renderer, &block);
     } 
   
@@ -83,6 +77,16 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, SDL_Point const 
   block.y = static_cast<int>(snake.head_y) * block.h;
   if (snake.alive) {
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+    // Render snake's 2 head
+  block.x = static_cast<int>(snake2.head_x) * block.w;
+  block.y = static_cast<int>(snake2.head_y) * block.h;
+  if (snake2.alive) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0x7A, 0xCC, 0x00, 0xFF);
   } else {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }

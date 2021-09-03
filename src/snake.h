@@ -37,6 +37,8 @@ class Snake {
   int grid_height;
 };
 
+
+//this class can simply be a vector of SDL_Points later
 class Enemy {
   public:
   //constructor

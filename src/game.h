@@ -20,14 +20,10 @@ class Game {
   std::vector<Enemy> _enemy;
 
  private:
-  Snake snake;
+  Snake snake; //player 1
+  Snake snake2; //player 2
   SDL_Point food;
 
-  //test
-  SDL_Point obstacle;
-  void PlaceObstacle();
-  SDL_Point maze_wall;
-  void PlaceMaze();
   std::vector<SDL_Point> _wall;
 
   std::random_device dev;

@@ -23,7 +23,6 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
     case Direction::kUp:
       cant_move = false;
       for (auto i: maze_wall){
-      //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
         if (((head_y-1)==i.y) && (head_x==i.x)){
           cant_move = true; 
         }
@@ -36,7 +35,6 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
     case Direction::kDown:
     cant_move = false;
       for (auto i: maze_wall){
-        //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
         if (((head_y+1)==i.y) && (head_x==i.x)){
           cant_move = true; 
         }
@@ -49,7 +47,6 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
     case Direction::kLeft:
     cant_move = false;
       for (auto i: maze_wall){
-        //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
         if (((head_x-1)==i.x) && (head_y==i.y)){
           cant_move = true; 
         }
@@ -62,7 +59,6 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
     case Direction::kRight:
     cant_move = false;
       for (auto i: maze_wall){
-        //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
         if (((head_x+1)==i.x) && (head_y==i.y)){
           cant_move = true; 
         }

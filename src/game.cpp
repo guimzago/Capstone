@@ -6,12 +6,11 @@
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
+      snake2(grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
   PlaceFood();
-  PlaceObstacle();
-  PlaceMaze();
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -34,7 +33,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     //Update();
     std::thread tUpdate = std::thread(&Game::Update, this);
     
-    renderer.Render(snake, food, obstacle, _wall, _enemy);
+    renderer.Render(snake, snake2, food, _wall, _enemy);
     //std::thread tRenderer = std::thread(&Renderer::Render, renderer, snake, food);
     //tRenderer.join();
     frame_end = SDL_GetTicks();
@@ -77,43 +76,9 @@ void Game::PlaceFood() {
   }
 }
 
-//test
-void Game::PlaceObstacle() {
-  int x, y;
-  while (true) {
-    x = random_w(engine);
-    y = random_h(engine);
-    // Check that the location is not occupied by a snake item before placing
-    // food.
-    if (!snake.SnakeCell(x, y) && (x!=food.x) && (y!=food.y)) {
-      obstacle.x = x;
-      obstacle.y = y;
-      return;
-    }
-  }
-}
-//test
-void Game::PlaceMaze() {
-  int x, y;
-  while (true) {
-    x = random_w(engine);
-    y = random_h(engine);
-    // Check that the location is not occupied by a snake item before placing
-    // food.
-    if (!snake.SnakeCell(x, y) && (x!=food.x) && (y!=food.y) && (x!=obstacle.x) && (y!=obstacle.y)) {
-      maze_wall.x = x;
-      maze_wall.y = y;
-      return;
-    }
-  }
-}
-
-
-
 void Game::Update() {
   if (!snake.alive) return;
 
-  //snake.Update(maze_wall); //chama snake update aqui, mas
   snake.Update(_wall); //chama snake update aqui, mas
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
@@ -121,13 +86,8 @@ void Game::Update() {
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
     score++;
-    //me
     PlaceFood();
-    //PlaceObstacle(); //test - need to see later what condition pops a new obstacle
-    //PlaceMaze();
-    // Grow snake and increase speed.
     snake.GrowBody();
-
     PlaceEnemy();
     PlaceWall();
     //test to print vector every enemy
@@ -136,11 +96,6 @@ void Game::Update() {
     }
   }
 
-  //test Check if there's obstacle over here
-  /*if (obstacle.x == new_x && obstacle.y == new_y) {
-    //this ends the game
-    snake.alive = false;
-  }*/
   //verifies if its in the same place as an enemy
   for (auto i: _enemy){
       //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
@@ -148,8 +103,6 @@ void Game::Update() {
         snake.alive = false;
       }
     }
-
-
 }
 
 int Game::GetScore() const { return score; }
