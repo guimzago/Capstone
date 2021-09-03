@@ -4,6 +4,14 @@
 //me
 #include "SDL.h"
 
+
+//me
+/*Snake::Snake(int headx, int heady) {
+  head_x = headx;
+  head_y = heady;
+}
+*/
+
 void Snake::Update(std::vector<SDL_Point> maze) {
   SDL_Point prev_cell{
       static_cast<int>(head_x),
@@ -21,7 +29,8 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
   static bool cant_move;
   switch (direction) {
     case Direction::kUp:
-      cant_move = false;
+    //std::cout << head_x << " " << head_y << " \n";
+    /*  cant_move = false;
       for (auto i: maze_wall){
         if (((head_y-1)==i.y) && (head_x==i.x)){
           cant_move = true; 
@@ -30,7 +39,10 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
     if (!cant_move) {
       head_y -= speed;
       speed = 0;
-    }
+    }*/
+     head_y -= speed;
+      speed = 0;
+      std::cout << "moveu pra cima" << " \n";
     break;
     case Direction::kDown:
     cant_move = false;

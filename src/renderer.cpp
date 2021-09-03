@@ -42,7 +42,7 @@ Renderer::~Renderer() {
 }
 
 //test - render obstacle
-void Renderer::Render(Snake const snake, Snake const snake2, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy) {
+void Renderer::Render(Snake const snake, Snake const snake2, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy, std::vector<Snake> snakes) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -91,6 +91,17 @@ void Renderer::Render(Snake const snake, Snake const snake2, SDL_Point const &fo
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
   SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Render snake's vector head'
+  block.x = static_cast<int>(snakes[0].head_x) * block.w;
+  block.y = static_cast<int>(snakes[0].head_y) * block.h;
+  if (snakes[0].alive) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xCC, 0x7A, 0xCC, 0xFF);
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+  SDL_RenderFillRect(sdl_renderer, &block);
+
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);

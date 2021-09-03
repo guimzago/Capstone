@@ -22,6 +22,7 @@ class Game {
  private:
   Snake snake; //player 1
   Snake snake2; //player 2
+  std::vector<Snake> snakes;
   SDL_Point food;
 
   std::vector<SDL_Point> _wall;

@@ -10,6 +10,10 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
+        snakes.emplace_back(Snake(grid_width,grid_height));
+        snakes.emplace_back(grid_width/2,grid_height/2);
+        std::cout << snake.head_x << " " << snake.head_y << " \n";
+        std::cout << snakes[0].head_x << " " << snakes[0].head_y << " \n";
   PlaceFood();
 }
 
@@ -26,14 +30,14 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    std::thread tController = std::thread(&Controller::HandleInput , controller, std::ref(running), std::ref(snake)); //creates thread for the controller
+    std::thread tController = std::thread(&Controller::HandleInput , controller, std::ref(running), std::ref(snakes)); //creates thread for the controller
     //thanks to this post: https://knowledge.udacity.com/questions/428737 for helping with the "std::ref"
     //controller.HandleInput(running, snake);
     
     //Update();
     std::thread tUpdate = std::thread(&Game::Update, this);
     
-    renderer.Render(snake, snake2, food, _wall, _enemy);
+    renderer.Render(snake, snake2, food, _wall, _enemy, snakes);
     //std::thread tRenderer = std::thread(&Renderer::Render, renderer, snake, food);
     //tRenderer.join();
     frame_end = SDL_GetTicks();
@@ -79,9 +83,14 @@ void Game::PlaceFood() {
 void Game::Update() {
   if (!snake.alive) return;
 
-  snake.Update(_wall); //chama snake update aqui, mas
+  /*snake.Update(_wall); //chama snake update aqui, mas
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
+*/
+
+  snakes[0].Update(_wall); //chama snake update aqui, mas
+  int new_x = static_cast<int>(snakes[0].head_x);
+  int new_y = static_cast<int>(snakes[0].head_y);
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
