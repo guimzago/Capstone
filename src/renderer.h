@@ -13,8 +13,9 @@ class Renderer {
 
   //void Render(Snake const snake, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy);
   //void Render(Snake const snake, Snake const snake2, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy);
-  void Render(Snake const snake, Snake const snake2, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy, std::vector<Snake> snakes);
-  void UpdateWindowTitle(int score, int fps, float headx, float heady);
+  void Render(SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy, std::vector<Snake> snakes);
+  //void UpdateWindowTitle(int score, int fps, float headx, float heady);
+  void UpdateWindowTitle(std::vector<Snake> snakes, int fps);
 
  private:
   SDL_Window *sdl_window;

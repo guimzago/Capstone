@@ -5,15 +5,15 @@
 #include "SDL.h"
 
 void Snake::Update(std::vector<SDL_Point> maze) {
-  SDL_Point prev_cell{
+ /* SDL_Point prev_cell{
       static_cast<int>(head_x),
       static_cast<int>(
-          head_y)};  // We first capture the head's cell before updating.
+          head_y)};  // We first capture the head's cell before updating.*/
   UpdatePosition(maze);
-  SDL_Point current_cell{
+  /*SDL_Point current_cell{
       static_cast<int>(head_x),
       static_cast<int>(head_y)
-      };  // Capture the head's cell after updating.
+      };  // Capture the head's cell after updating.*/
   }
 
 //e é aqui que podemos passar como um shared pointer a localização do maze
@@ -21,7 +21,6 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
   static bool cant_move;
   switch (direction) {
     case Direction::kUp:
-    //std::cout << head_x << " " << head_y << " \n";
       cant_move = false;
       for (auto i: maze_wall){
         if (((head_y-1)==i.y) && (head_x==i.x)){
@@ -32,8 +31,6 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
       head_y -= speed;
       speed = 0;
     }
-     /*head_y -= speed;
-      speed = 0; */
     break;
     case Direction::kDown:
     cant_move = false;
@@ -92,5 +89,3 @@ bool Snake::SnakeCell(int x, int y) {
   }
   return false;
 }
-
-

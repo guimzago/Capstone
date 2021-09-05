@@ -42,7 +42,7 @@ Renderer::~Renderer() {
 }
 
 //test - render obstacle
-void Renderer::Render(Snake const snake, Snake const snake2, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy, std::vector<Snake> snakes) {
+void Renderer::Render(SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy, std::vector<Snake> snakes) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -72,26 +72,6 @@ void Renderer::Render(Snake const snake, Snake const snake2, SDL_Point const &fo
         SDL_RenderFillRect(sdl_renderer, &block);
     } 
   
-  // Render snake's head
-  block.x = static_cast<int>(snake.head_x) * block.w;
-  block.y = static_cast<int>(snake.head_y) * block.h;
-  if (snake.alive) {
-    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
-  } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
-  }
-  SDL_RenderFillRect(sdl_renderer, &block);
-
-    // Render snake's 2 head
-  block.x = static_cast<int>(snake2.head_x) * block.w;
-  block.y = static_cast<int>(snake2.head_y) * block.h;
-  if (snake2.alive) {
-    SDL_SetRenderDrawColor(sdl_renderer, 0x7A, 0xCC, 0x00, 0xFF);
-  } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
-  }
-  SDL_RenderFillRect(sdl_renderer, &block);
-
   // Render snake's vector head'
   block.x = static_cast<int>(snakes[0].head_x) * block.w;
   block.y = static_cast<int>(snakes[0].head_y) * block.h;
@@ -102,13 +82,22 @@ void Renderer::Render(Snake const snake, Snake const snake2, SDL_Point const &fo
   }
   SDL_RenderFillRect(sdl_renderer, &block);
 
+  // Render snake's 2 vector head'
+  block.x = static_cast<int>(snakes[1].head_x) * block.w;
+  block.y = static_cast<int>(snakes[1].head_y) * block.h;
+  if (snakes[1].alive) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xAA, 0xAA, 0x55, 0xFF);
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+  SDL_RenderFillRect(sdl_renderer, &block);
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::UpdateWindowTitle(int score, int fps, float headx, float heady) {
+void Renderer::UpdateWindowTitle(std::vector<Snake> snakes, int fps) {
   //test
-  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps) + " X: " + std::to_string(headx) + " Y: " +  std::to_string(heady)};
+  std::string title{"Snake 0: " + std::to_string(snakes[0].score) + "Snake 1: " + std::to_string(snakes[1].score) + " FPS: " + std::to_string(fps)};
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }

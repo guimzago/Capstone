@@ -45,6 +45,34 @@ void Controller::HandleInput(bool &running, std::vector<Snake> &snake) const {
                           snake[0].speed = 1;
                           std::cout << snake[0].head_x << " " << snake[0].head_y << " \n";
           break;
+      case SDLK_w:
+          ChangeDirection(snake[1], Snake::Direction::kUp,
+                          Snake::Direction::kDown);
+                          snake[1].speed = 1; //test speed
+                          std::cout << snake[1].head_x << " " << snake[1].head_y << " \n";
+
+          break;
+
+        case SDLK_s:
+          ChangeDirection(snake[1], Snake::Direction::kDown,
+                          Snake::Direction::kUp);
+                          snake[1].speed = 1;
+                          std::cout << snake[1].head_x << " " << snake[1].head_y << " \n";
+          break;
+
+        case SDLK_a:
+          ChangeDirection(snake[1], Snake::Direction::kLeft,
+                          Snake::Direction::kRight);
+                          snake[1].speed = 1;
+                          std::cout << snake[1].head_x << " " << snake[1].head_y << " \n";
+          break;
+
+        case SDLK_d:
+          ChangeDirection(snake[1], Snake::Direction::kRight,
+                          Snake::Direction::kLeft);
+                          snake[1].speed = 1;
+                          std::cout << snake[1].head_x << " " << snake[1].head_y << " \n";
+          break;    
       }
     }
   }

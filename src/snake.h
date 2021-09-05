@@ -10,11 +10,12 @@ class Snake {
  public:
   enum class Direction { kUp, kDown, kLeft, kRight };
 
-  Snake(int grid_width, int grid_height)
+  Snake(int grid_width, int grid_height, int score)
       : grid_width(grid_width),
         grid_height(grid_height),
         head_x(grid_width / 2),
-        head_y(grid_height / 2) {}
+        head_y(grid_height / 2),
+        score(score) {}
 
   void Update(std::vector<SDL_Point> maze);
   void GrowBody();
@@ -27,6 +28,7 @@ class Snake {
   bool alive{true};
   int head_x;
   int head_y;
+  int score;
   std::vector<SDL_Point> body;
 
  private:

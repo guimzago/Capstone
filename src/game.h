@@ -12,16 +12,14 @@ class Game {
   Game(std::size_t grid_width, std::size_t grid_height);
   void Run(Controller const &controller, Renderer &renderer,
            std::size_t target_frame_duration);
-  int GetScore() const;
+  //int GetScore() const;
   int GetSize() const;
   float GetHeadX() const;
   float GetHeadY() const;
-
+  bool CheckItem(std::vector<Snake> snake, SDL_Point item);
   std::vector<Enemy> _enemy;
 
  private:
-  Snake snake; //player 1
-  Snake snake2; //player 2
   std::vector<Snake> snakes;
   SDL_Point food;
 
@@ -31,8 +29,6 @@ class Game {
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
-
-  int score{0};
 
   void PlaceFood();
   void Update();
