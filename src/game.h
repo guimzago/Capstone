@@ -9,31 +9,29 @@
 
 class Game {
  public:
-  Game(std::size_t grid_width, std::size_t grid_height);
+  Game(std::size_t grid_width, std::size_t grid_height, int points);
   void Run(Controller const &controller, Renderer &renderer,
            std::size_t target_frame_duration);
-  //int GetScore() const;
-  int GetSize() const;
-  float GetHeadX() const;
-  float GetHeadY() const;
-  bool CheckItem(std::vector<Snake> snake, SDL_Point item);
-  std::vector<Enemy> _enemy;
+
+  int game_over;
 
  private:
   std::vector<Snake> snakes;
   SDL_Point food;
-
   std::vector<SDL_Point> _wall;
-
+   std::vector<SDL_Point> _enemy;
   std::random_device dev;
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
+  int points_to_win;
 
   void PlaceFood();
   void Update();
   void PlaceEnemy();
   void PlaceWall();
+  void CheckEnemy();
+  bool CheckItem(std::vector<Snake> snake, SDL_Point item);
 };
 
 #endif

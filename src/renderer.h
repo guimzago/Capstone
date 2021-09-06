@@ -10,13 +10,9 @@ class Renderer {
   Renderer(const std::size_t screen_width, const std::size_t screen_height,
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
-
-  //void Render(Snake const snake, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy);
-  //void Render(Snake const snake, Snake const snake2, SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy);
-  void Render(SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy, std::vector<Snake> snakes);
-  //void UpdateWindowTitle(int score, int fps, float headx, float heady);
+  void Render(SDL_Point const &food, std::vector<SDL_Point> const &wall, std::vector<SDL_Point> const &enemy, std::vector<Snake> const &snakes);
   void UpdateWindowTitle(std::vector<Snake> snakes, int fps);
-
+  std::vector<std::vector<int>> color {{0xCC, 0x7A, 0xCC},{0xAA, 0xAA, 0x55}}; //vector with the players colors
  private:
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;

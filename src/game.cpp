@@ -4,15 +4,18 @@
 //me
 #include <thread>
 
-Game::Game(std::size_t grid_width, std::size_t grid_height)
+//game constructor
+Game::Game(std::size_t grid_width, std::size_t grid_height, int points)
     : engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
-      random_h(0, static_cast<int>(grid_height - 1)) {
+      random_h(0, static_cast<int>(grid_height - 1)),
+      points_to_win(points) {
         snakes.emplace_back(Snake(grid_width,grid_height,0));
         snakes.emplace_back(Snake(grid_width,grid_height,0));
   PlaceFood();
 }
 
+//game main function - contains main game loop
 void Game::Run(Controller const &controller, Renderer &renderer,
                std::size_t target_frame_duration) {
   Uint32 title_timestamp = SDL_GetTicks();
@@ -26,16 +29,14 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
+    //controller thread
     std::thread tController = std::thread(&Controller::HandleInput , controller, std::ref(running), std::ref(snakes)); //creates thread for the controller
     //thanks to this post: https://knowledge.udacity.com/questions/428737 for helping with the "std::ref"
-    //controller.HandleInput(running, snake);
-    
-    //Update();
+    //game update thread
     std::thread tUpdate = std::thread(&Game::Update, this);
-    
     renderer.Render(food, _wall, _enemy, snakes);
-    //std::thread tRenderer = std::thread(&Renderer::Render, renderer, snake, food);
-    //tRenderer.join();
+    // end of the main game loop
+
     frame_end = SDL_GetTicks();
 
     // Keep track of how long each loop through the input/update/render cycle
@@ -56,25 +57,12 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     if (frame_duration < target_frame_duration) {
       SDL_Delay(target_frame_duration - frame_duration);
     }
+    //join threads
     tController.join();
     tUpdate.join();
   }
 }
-/*
-void Game::PlaceFood() {
-  int x, y;
-  while (true) {
-    x = random_w(engine);
-    y = random_h(engine);
-    // Check that the location is not occupied by a snake item before placing food.
-    if (!snakes[0].SnakeCell(x, y)) {
-      food.x = x;
-      food.y = y;
-      return;
-    }
-  }
-}
-*/
+
 void Game::PlaceFood() {
   int x, y;
   while (true) {
@@ -92,46 +80,49 @@ void Game::PlaceFood() {
 }
 
 void Game::Update() {
-  if (!snakes[0].alive) return;
-  if (!snakes[1].alive) return;
+  if (game_over) return;
+
+  for (int i=0; i< snakes.size() ; i++)
+  {
+    if (!snakes[i].alive) {
+      std::cout << "Player " << i << " won! \n";
+      game_over = 1;
+      return;
+    }
+  }
 
   for (auto &i: snakes){
-    i.Update(_wall);
+    i.UpdatePosition(_wall);
   }  
   // Check if a player has scored(is on the same place as food)
       for (auto &i : snakes) {
         if ((i.head_x == food.x) && (i.head_y == food.y)) {
           i.score++;
-          std::cout << " score "<< i.score << " \n"; //prints score to check
+          if (i.score >= points_to_win) {
+            i.alive = false;
+            break;
+          }
           PlaceFood();
-          //snakes[0].GrowBody();
           PlaceEnemy();
           PlaceWall();
-          std::cout << " score 0: " << snakes[0].score << "               score 1: " << snakes[1].score << "/n"; 
       }
   }
-    int index =0;
-    for (auto i: _enemy){
-      index++;
-      //std::cout << i._location.x << " " << i._location.y << " \n"; //ok, aqui está funcionando, pelo menos o log fica...então já temos um vetor de enemies
-      if ((i._location.x == snakes[0].head_x) && (i._location.y == snakes[0].head_y)){
-        //snakes[0].alive = false;
-        _enemy.erase(_enemy.begin()+index-1); //this works! 
-        snakes[0].score--;
-        std::cout << " score 0: " << snakes[0].score << "/n";
+  CheckEnemy();
+}
 
-      }
-      if ((i._location.x == snakes[1].head_x) && (i._location.y == snakes[1].head_y)){
-        snakes[1].alive = false;
+//this function verifies if an enemy has been hit. if yes, player loses 1 point and enemy is destroyed. 
+void Game::CheckEnemy() {
+    int index =0;
+    for (auto &i: _enemy){
+      index++;
+      for (auto &j: snakes) {
+        if ((i.x == j.head_x) && (i.y == j.head_y)) {
+          _enemy.erase(_enemy.begin()+index-1); 
+          if (j.score > 0)j.score--;
+        }
       }
     }
 }
-
-//int Game::GetScore() const { return score; }
-int Game::GetSize() const { return snakes[0].size; }
-
-float Game::GetHeadX() const { return snakes[0].head_x;}
-float Game::GetHeadY() const { return snakes[0].head_y;}
 
 void Game::PlaceEnemy() {
   int x, y;
@@ -160,16 +151,16 @@ void Game::PlaceWall() {
       _wall.emplace_back(wall_point);
       return;
     }
-
   }
 }
 
 bool Game::CheckItem(std::vector<Snake> snake, SDL_Point item){
-  bool cant_instert_item = false;
+  bool cant_insert_item = false;
   for (auto i:snake){
     if ((i.head_x == item.x) && (i.head_y == item.y)){
-      cant_instert_item = true;
+      cant_insert_item = true;
     }
   }
-  return cant_instert_item;
+  return cant_insert_item;
 }
+

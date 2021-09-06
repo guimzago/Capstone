@@ -11,15 +11,17 @@ int main() {
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
 
+  int points =0;
   std::cout << "Game has started \n";  
+  std::cout << "Type score to win (min 5, max 20): \n";
+  while ((points < 5) || (points > 20)){
+  std::cin >> points;
+  }
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
-  Game game(kGridWidth, kGridHeight);
+  Game game(kGridWidth, kGridHeight, points);
   game.Run(controller, renderer, kMsPerFrame);
   std::cout << "Game has terminated successfully!\n";
-  //std::cout << "Score: " << game.GetScore() << "\n";
-  //std::cout << "Snake 0 score: << "
-  std::cout << "Size: " << game.GetSize() << "\n";
   return 0;
 }

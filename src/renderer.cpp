@@ -41,8 +41,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-//test - render obstacle
-void Renderer::Render(SDL_Point const &food, std::vector<SDL_Point> wall, std::vector<Enemy> enemy, std::vector<Snake> snakes) {
+void Renderer::Render(SDL_Point const &food, std::vector<SDL_Point> const &wall, std::vector<SDL_Point> const &enemy, std::vector<Snake> const &snakes) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -51,53 +50,46 @@ void Renderer::Render(SDL_Point const &food, std::vector<SDL_Point> wall, std::v
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
-  // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  block.x = food.x * block.w;
-  block.y = food.y * block.h;
-  SDL_RenderFillRect(sdl_renderer, &block);
-
   // Render enemies
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
       for (auto i: enemy){
-        block.x = i._location.x * block.w;
-        block.y = i._location.y * block.h;
+        block.x = i.x * block.w;
+        block.y = i.y * block.h;
         SDL_RenderFillRect(sdl_renderer, &block);
     }
-  // Render maze
+
+  // Render maze  
   SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x00, 0xFF, 0xFF);
       for (auto i: wall){
         block.x = i.x * block.w;
         block.y = i.y * block.h;
         SDL_RenderFillRect(sdl_renderer, &block);
     } 
+
+  // Render food
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0x00, 0xFF);
+  block.x = food.x * block.w;
+  block.y = food.y * block.h;
+  SDL_RenderFillRect(sdl_renderer, &block);
   
-  // Render snake's vector head'
-  block.x = static_cast<int>(snakes[0].head_x) * block.w;
-  block.y = static_cast<int>(snakes[0].head_y) * block.h;
-  if (snakes[0].alive) {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xCC, 0x7A, 0xCC, 0xFF);
-  } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
-  }
+  //Render players
   SDL_RenderFillRect(sdl_renderer, &block);
-
-  // Render snake's 2 vector head'
-  block.x = static_cast<int>(snakes[1].head_x) * block.w;
-  block.y = static_cast<int>(snakes[1].head_y) * block.h;
-  if (snakes[1].alive) {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xAA, 0xAA, 0x55, 0xFF);
-  } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  for (int index =0; index < snakes.size() ; index++) {
+    block.x = snakes[index].head_x * block.w;
+    block.y = snakes[index].head_y * block.h;
+    SDL_SetRenderDrawColor(sdl_renderer, color[index][0], color[index][1], color[index][2], 0xFF);
+    SDL_RenderFillRect(sdl_renderer, &block);
   }
-  SDL_RenderFillRect(sdl_renderer, &block);
 
-  // Update Screen
+ // Update Screen
   SDL_RenderPresent(sdl_renderer);
 }
 
 void Renderer::UpdateWindowTitle(std::vector<Snake> snakes, int fps) {
-  //test
-  std::string title{"Snake 0: " + std::to_string(snakes[0].score) + "Snake 1: " + std::to_string(snakes[1].score) + " FPS: " + std::to_string(fps)};
+  std::string title;
+  for (int index =0; index < snakes.size() ; index++) {
+    title = title + " Player " + std::to_string(index) + ":" + std::to_string(snakes[index].score) + "   " ;
+  }
+  title = title + "    FPS: " + std::to_string(fps);
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }
