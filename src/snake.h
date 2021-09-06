@@ -19,6 +19,7 @@ class Snake {
   void UpdatePosition(std::vector<SDL_Point> maze_wall);
   Direction direction = Direction::kUp;
 
+  bool lock_movement;
   int speed;
   bool alive{true};
   int head_x;

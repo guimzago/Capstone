@@ -10,6 +10,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, int points)
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)),
       points_to_win(points) {
+        //start the players - to add more players simply emplace back one more Player
         snakes.emplace_back(Snake(grid_width,grid_height,0));
         snakes.emplace_back(Snake(grid_width,grid_height,0));
   PlaceFood();

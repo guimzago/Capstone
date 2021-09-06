@@ -5,7 +5,8 @@
 
 class Controller {
  public:
-void HandleInput(bool &running, std::vector<Snake> &snake) const;
+    void SetDirection (Snake &snake , Snake::Direction direction);
+    void HandleInput(bool &running, std::vector<Snake> &snake) ;
 };
 
 #endif
