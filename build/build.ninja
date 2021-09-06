@@ -34,7 +34,7 @@ include rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/guimzago/snake/Capstone/build && /usr/bin/cmake -S/home/guimzago/snake/Capstone -B/home/guimzago/snake/Capstone/build
+  COMMAND = cd /home/guimzago/player/Capstone/build && /usr/bin/cmake -S/home/guimzago/player/Capstone -B/home/guimzago/player/Capstone/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -46,72 +46,72 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/guimzago/snake/Capstone/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/guimzago/player/Capstone/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
 build edit_cache: phony CMakeFiles/edit_cache.util
 
 # =============================================================================
-# Object build statements for EXECUTABLE target SnakeGame
+# Object build statements for EXECUTABLE target PlayerGame
 
 
 #############################################
-# Order-only phony target for SnakeGame
+# Order-only phony target for PlayerGame
 
-build cmake_object_order_depends_target_SnakeGame: phony || CMakeFiles/SnakeGame.dir
+build cmake_object_order_depends_target_PlayerGame: phony || CMakeFiles/PlayerGame.dir
 
-build CMakeFiles/SnakeGame.dir/src/main.cpp.o: CXX_COMPILER__SnakeGame ../src/main.cpp || cmake_object_order_depends_target_SnakeGame
-  DEP_FILE = CMakeFiles/SnakeGame.dir/src/main.cpp.o.d
+build CMakeFiles/PlayerGame.dir/src/main.cpp.o: CXX_COMPILER__PlayerGame ../src/main.cpp || cmake_object_order_depends_target_PlayerGame
+  DEP_FILE = CMakeFiles/PlayerGame.dir/src/main.cpp.o.d
   FLAGS = -std=c++17 -pthread -g   -std=c++17 -std=gnu++17
   INCLUDES = -I/usr/include/SDL2 -I../src
-  OBJECT_DIR = CMakeFiles/SnakeGame.dir
-  OBJECT_FILE_DIR = CMakeFiles/SnakeGame.dir/src
+  OBJECT_DIR = CMakeFiles/PlayerGame.dir
+  OBJECT_FILE_DIR = CMakeFiles/PlayerGame.dir/src
 
-build CMakeFiles/SnakeGame.dir/src/game.cpp.o: CXX_COMPILER__SnakeGame ../src/game.cpp || cmake_object_order_depends_target_SnakeGame
-  DEP_FILE = CMakeFiles/SnakeGame.dir/src/game.cpp.o.d
+build CMakeFiles/PlayerGame.dir/src/game.cpp.o: CXX_COMPILER__PlayerGame ../src/game.cpp || cmake_object_order_depends_target_PlayerGame
+  DEP_FILE = CMakeFiles/PlayerGame.dir/src/game.cpp.o.d
   FLAGS = -std=c++17 -pthread -g   -std=c++17 -std=gnu++17
   INCLUDES = -I/usr/include/SDL2 -I../src
-  OBJECT_DIR = CMakeFiles/SnakeGame.dir
-  OBJECT_FILE_DIR = CMakeFiles/SnakeGame.dir/src
+  OBJECT_DIR = CMakeFiles/PlayerGame.dir
+  OBJECT_FILE_DIR = CMakeFiles/PlayerGame.dir/src
 
-build CMakeFiles/SnakeGame.dir/src/controller.cpp.o: CXX_COMPILER__SnakeGame ../src/controller.cpp || cmake_object_order_depends_target_SnakeGame
-  DEP_FILE = CMakeFiles/SnakeGame.dir/src/controller.cpp.o.d
+build CMakeFiles/PlayerGame.dir/src/controller.cpp.o: CXX_COMPILER__PlayerGame ../src/controller.cpp || cmake_object_order_depends_target_PlayerGame
+  DEP_FILE = CMakeFiles/PlayerGame.dir/src/controller.cpp.o.d
   FLAGS = -std=c++17 -pthread -g   -std=c++17 -std=gnu++17
   INCLUDES = -I/usr/include/SDL2 -I../src
-  OBJECT_DIR = CMakeFiles/SnakeGame.dir
-  OBJECT_FILE_DIR = CMakeFiles/SnakeGame.dir/src
+  OBJECT_DIR = CMakeFiles/PlayerGame.dir
+  OBJECT_FILE_DIR = CMakeFiles/PlayerGame.dir/src
 
-build CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: CXX_COMPILER__SnakeGame ../src/renderer.cpp || cmake_object_order_depends_target_SnakeGame
-  DEP_FILE = CMakeFiles/SnakeGame.dir/src/renderer.cpp.o.d
+build CMakeFiles/PlayerGame.dir/src/renderer.cpp.o: CXX_COMPILER__PlayerGame ../src/renderer.cpp || cmake_object_order_depends_target_PlayerGame
+  DEP_FILE = CMakeFiles/PlayerGame.dir/src/renderer.cpp.o.d
   FLAGS = -std=c++17 -pthread -g   -std=c++17 -std=gnu++17
   INCLUDES = -I/usr/include/SDL2 -I../src
-  OBJECT_DIR = CMakeFiles/SnakeGame.dir
-  OBJECT_FILE_DIR = CMakeFiles/SnakeGame.dir/src
+  OBJECT_DIR = CMakeFiles/PlayerGame.dir
+  OBJECT_FILE_DIR = CMakeFiles/PlayerGame.dir/src
 
-build CMakeFiles/SnakeGame.dir/src/snake.cpp.o: CXX_COMPILER__SnakeGame ../src/snake.cpp || cmake_object_order_depends_target_SnakeGame
-  DEP_FILE = CMakeFiles/SnakeGame.dir/src/snake.cpp.o.d
+build CMakeFiles/PlayerGame.dir/src/player.cpp.o: CXX_COMPILER__PlayerGame ../src/player.cpp || cmake_object_order_depends_target_PlayerGame
+  DEP_FILE = CMakeFiles/PlayerGame.dir/src/player.cpp.o.d
   FLAGS = -std=c++17 -pthread -g   -std=c++17 -std=gnu++17
   INCLUDES = -I/usr/include/SDL2 -I../src
-  OBJECT_DIR = CMakeFiles/SnakeGame.dir
-  OBJECT_FILE_DIR = CMakeFiles/SnakeGame.dir/src
+  OBJECT_DIR = CMakeFiles/PlayerGame.dir
+  OBJECT_FILE_DIR = CMakeFiles/PlayerGame.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target SnakeGame
+# Link build statements for EXECUTABLE target PlayerGame
 
 
 #############################################
-# Link the executable SnakeGame
+# Link the executable PlayerGame
 
-build SnakeGame: CXX_EXECUTABLE_LINKER__SnakeGame CMakeFiles/SnakeGame.dir/src/main.cpp.o CMakeFiles/SnakeGame.dir/src/game.cpp.o CMakeFiles/SnakeGame.dir/src/controller.cpp.o CMakeFiles/SnakeGame.dir/src/renderer.cpp.o CMakeFiles/SnakeGame.dir/src/snake.cpp.o
+build PlayerGame: CXX_EXECUTABLE_LINKER__PlayerGame CMakeFiles/PlayerGame.dir/src/main.cpp.o CMakeFiles/PlayerGame.dir/src/game.cpp.o CMakeFiles/PlayerGame.dir/src/controller.cpp.o CMakeFiles/PlayerGame.dir/src/renderer.cpp.o CMakeFiles/PlayerGame.dir/src/player.cpp.o
   FLAGS = -std=c++17 -pthread -g
   LINK_LIBRARIES = -lSDL2
-  OBJECT_DIR = CMakeFiles/SnakeGame.dir
+  OBJECT_DIR = CMakeFiles/PlayerGame.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = SnakeGame
-  TARGET_PDB = SnakeGame.dbg
+  TARGET_FILE = PlayerGame
+  TARGET_PDB = PlayerGame.dbg
 
 # =============================================================================
 # Target aliases.
@@ -122,9 +122,9 @@ build SnakeGame: CXX_EXECUTABLE_LINKER__SnakeGame CMakeFiles/SnakeGame.dir/src/m
 # =============================================================================
 
 #############################################
-# Folder: /home/guimzago/snake/Capstone/build
+# Folder: /home/guimzago/player/Capstone/build
 
-build all: phony SnakeGame
+build all: phony PlayerGame
 
 # =============================================================================
 # Built-in targets

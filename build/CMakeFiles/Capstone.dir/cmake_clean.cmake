@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Capstone.dir/src/game.cpp.o"
   "CMakeFiles/Capstone.dir/src/main.cpp.o"
   "CMakeFiles/Capstone.dir/src/renderer.cpp.o"
-  "CMakeFiles/Capstone.dir/src/snake.cpp.o"
+  "CMakeFiles/Capstone.dir/src/player.cpp.o"
   "Capstone"
   "Capstone.pdb"
 )

@@ -1,31 +1,31 @@
 [
 {
-  "directory": "/home/guimzago/snake/Capstone/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/SnakeGame.dir/src/main.cpp.o -c /home/guimzago/snake/Capstone/src/main.cpp",
-  "file": "/home/guimzago/snake/Capstone/src/main.cpp"
+  "directory": "/home/guimzago/player/Capstone/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/PlayerGame.dir/src/main.cpp.o -c /home/guimzago/player/Capstone/src/main.cpp",
+  "file": "/home/guimzago/player/Capstone/src/main.cpp"
 },
 
 {
-  "directory": "/home/guimzago/snake/Capstone/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/SnakeGame.dir/src/game.cpp.o -c /home/guimzago/snake/Capstone/src/game.cpp",
-  "file": "/home/guimzago/snake/Capstone/src/game.cpp"
+  "directory": "/home/guimzago/player/Capstone/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/PlayerGame.dir/src/game.cpp.o -c /home/guimzago/player/Capstone/src/game.cpp",
+  "file": "/home/guimzago/player/Capstone/src/game.cpp"
 },
 
 {
-  "directory": "/home/guimzago/snake/Capstone/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/SnakeGame.dir/src/controller.cpp.o -c /home/guimzago/snake/Capstone/src/controller.cpp",
-  "file": "/home/guimzago/snake/Capstone/src/controller.cpp"
+  "directory": "/home/guimzago/player/Capstone/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/PlayerGame.dir/src/controller.cpp.o -c /home/guimzago/player/Capstone/src/controller.cpp",
+  "file": "/home/guimzago/player/Capstone/src/controller.cpp"
 },
 
 {
-  "directory": "/home/guimzago/snake/Capstone/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/SnakeGame.dir/src/renderer.cpp.o -c /home/guimzago/snake/Capstone/src/renderer.cpp",
-  "file": "/home/guimzago/snake/Capstone/src/renderer.cpp"
+  "directory": "/home/guimzago/player/Capstone/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/PlayerGame.dir/src/renderer.cpp.o -c /home/guimzago/player/Capstone/src/renderer.cpp",
+  "file": "/home/guimzago/player/Capstone/src/renderer.cpp"
 },
 
 {
-  "directory": "/home/guimzago/snake/Capstone/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/SnakeGame.dir/src/snake.cpp.o -c /home/guimzago/snake/Capstone/src/snake.cpp",
-  "file": "/home/guimzago/snake/Capstone/src/snake.cpp"
+  "directory": "/home/guimzago/player/Capstone/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I/usr/include/SDL2 -I../src  -std=c++17 -pthread -g   -std=c++17 -std=gnu++17 -o CMakeFiles/PlayerGame.dir/src/player.cpp.o -c /home/guimzago/player/Capstone/src/player.cpp",
+  "file": "/home/guimzago/player/Capstone/src/player.cpp"
 }
 ]

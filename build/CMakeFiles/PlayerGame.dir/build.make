@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/guimzago/player/Capstone
+CMAKE_SOURCE_DIR = /home/guimzago/snake/Capstone
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/guimzago/player/Capstone/build
+CMAKE_BINARY_DIR = /home/guimzago/snake/Capstone/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/PlayerGame.dir/depend.make
@@ -59,68 +59,68 @@ include CMakeFiles/PlayerGame.dir/flags.make
 
 CMakeFiles/PlayerGame.dir/src/main.cpp.o: CMakeFiles/PlayerGame.dir/flags.make
 CMakeFiles/PlayerGame.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/player/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PlayerGame.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/main.cpp.o -c /home/guimzago/player/Capstone/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/snake/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PlayerGame.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/main.cpp.o -c /home/guimzago/snake/Capstone/src/main.cpp
 
 CMakeFiles/PlayerGame.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayerGame.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/player/Capstone/src/main.cpp > CMakeFiles/PlayerGame.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/snake/Capstone/src/main.cpp > CMakeFiles/PlayerGame.dir/src/main.cpp.i
 
 CMakeFiles/PlayerGame.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayerGame.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/player/Capstone/src/main.cpp -o CMakeFiles/PlayerGame.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/snake/Capstone/src/main.cpp -o CMakeFiles/PlayerGame.dir/src/main.cpp.s
 
 CMakeFiles/PlayerGame.dir/src/game.cpp.o: CMakeFiles/PlayerGame.dir/flags.make
 CMakeFiles/PlayerGame.dir/src/game.cpp.o: ../src/game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/player/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PlayerGame.dir/src/game.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/game.cpp.o -c /home/guimzago/player/Capstone/src/game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/snake/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PlayerGame.dir/src/game.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/game.cpp.o -c /home/guimzago/snake/Capstone/src/game.cpp
 
 CMakeFiles/PlayerGame.dir/src/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayerGame.dir/src/game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/player/Capstone/src/game.cpp > CMakeFiles/PlayerGame.dir/src/game.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/snake/Capstone/src/game.cpp > CMakeFiles/PlayerGame.dir/src/game.cpp.i
 
 CMakeFiles/PlayerGame.dir/src/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayerGame.dir/src/game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/player/Capstone/src/game.cpp -o CMakeFiles/PlayerGame.dir/src/game.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/snake/Capstone/src/game.cpp -o CMakeFiles/PlayerGame.dir/src/game.cpp.s
 
 CMakeFiles/PlayerGame.dir/src/controller.cpp.o: CMakeFiles/PlayerGame.dir/flags.make
 CMakeFiles/PlayerGame.dir/src/controller.cpp.o: ../src/controller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/player/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PlayerGame.dir/src/controller.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/controller.cpp.o -c /home/guimzago/player/Capstone/src/controller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/snake/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PlayerGame.dir/src/controller.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/controller.cpp.o -c /home/guimzago/snake/Capstone/src/controller.cpp
 
 CMakeFiles/PlayerGame.dir/src/controller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayerGame.dir/src/controller.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/player/Capstone/src/controller.cpp > CMakeFiles/PlayerGame.dir/src/controller.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/snake/Capstone/src/controller.cpp > CMakeFiles/PlayerGame.dir/src/controller.cpp.i
 
 CMakeFiles/PlayerGame.dir/src/controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayerGame.dir/src/controller.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/player/Capstone/src/controller.cpp -o CMakeFiles/PlayerGame.dir/src/controller.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/snake/Capstone/src/controller.cpp -o CMakeFiles/PlayerGame.dir/src/controller.cpp.s
 
 CMakeFiles/PlayerGame.dir/src/renderer.cpp.o: CMakeFiles/PlayerGame.dir/flags.make
 CMakeFiles/PlayerGame.dir/src/renderer.cpp.o: ../src/renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/player/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PlayerGame.dir/src/renderer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/renderer.cpp.o -c /home/guimzago/player/Capstone/src/renderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/snake/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PlayerGame.dir/src/renderer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/renderer.cpp.o -c /home/guimzago/snake/Capstone/src/renderer.cpp
 
 CMakeFiles/PlayerGame.dir/src/renderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayerGame.dir/src/renderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/player/Capstone/src/renderer.cpp > CMakeFiles/PlayerGame.dir/src/renderer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/snake/Capstone/src/renderer.cpp > CMakeFiles/PlayerGame.dir/src/renderer.cpp.i
 
 CMakeFiles/PlayerGame.dir/src/renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayerGame.dir/src/renderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/player/Capstone/src/renderer.cpp -o CMakeFiles/PlayerGame.dir/src/renderer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/snake/Capstone/src/renderer.cpp -o CMakeFiles/PlayerGame.dir/src/renderer.cpp.s
 
 CMakeFiles/PlayerGame.dir/src/player.cpp.o: CMakeFiles/PlayerGame.dir/flags.make
 CMakeFiles/PlayerGame.dir/src/player.cpp.o: ../src/player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/player/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PlayerGame.dir/src/player.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/player.cpp.o -c /home/guimzago/player/Capstone/src/player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guimzago/snake/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PlayerGame.dir/src/player.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PlayerGame.dir/src/player.cpp.o -c /home/guimzago/snake/Capstone/src/player.cpp
 
 CMakeFiles/PlayerGame.dir/src/player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayerGame.dir/src/player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/player/Capstone/src/player.cpp > CMakeFiles/PlayerGame.dir/src/player.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guimzago/snake/Capstone/src/player.cpp > CMakeFiles/PlayerGame.dir/src/player.cpp.i
 
 CMakeFiles/PlayerGame.dir/src/player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayerGame.dir/src/player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/player/Capstone/src/player.cpp -o CMakeFiles/PlayerGame.dir/src/player.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guimzago/snake/Capstone/src/player.cpp -o CMakeFiles/PlayerGame.dir/src/player.cpp.s
 
 # Object files for target PlayerGame
 PlayerGame_OBJECTS = \
@@ -140,7 +140,7 @@ PlayerGame: CMakeFiles/PlayerGame.dir/src/renderer.cpp.o
 PlayerGame: CMakeFiles/PlayerGame.dir/src/player.cpp.o
 PlayerGame: CMakeFiles/PlayerGame.dir/build.make
 PlayerGame: CMakeFiles/PlayerGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/guimzago/player/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable PlayerGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/guimzago/snake/Capstone/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable PlayerGame"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PlayerGame.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +153,6 @@ CMakeFiles/PlayerGame.dir/clean:
 .PHONY : CMakeFiles/PlayerGame.dir/clean
 
 CMakeFiles/PlayerGame.dir/depend:
-	cd /home/guimzago/player/Capstone/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/guimzago/player/Capstone /home/guimzago/player/Capstone /home/guimzago/player/Capstone/build /home/guimzago/player/Capstone/build /home/guimzago/player/Capstone/build/CMakeFiles/PlayerGame.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/guimzago/snake/Capstone/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/guimzago/snake/Capstone /home/guimzago/snake/Capstone /home/guimzago/snake/Capstone/build /home/guimzago/snake/Capstone/build /home/guimzago/snake/Capstone/build/CMakeFiles/PlayerGame.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PlayerGame.dir/depend
 

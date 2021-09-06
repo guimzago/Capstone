@@ -5,7 +5,7 @@
 #include "SDL.h"
 #include "controller.h"
 #include "renderer.h"
-#include "snake.h"
+#include "player.h"
 
 class Game {
  public:
@@ -16,7 +16,7 @@ class Game {
   int game_over;
 
  private:
-  std::vector<Snake> snakes;
+  std::vector<Player> players;
   SDL_Point food;
   std::vector<SDL_Point> _wall;
    std::vector<SDL_Point> _enemy;
@@ -31,7 +31,7 @@ class Game {
   void PlaceEnemy();
   void PlaceWall();
   void CheckEnemy();
-  bool CheckItem(std::vector<Snake> snake, SDL_Point item);
+  bool CheckItem(std::vector<Player> player, SDL_Point item);
 };
 
 #endif

@@ -11,8 +11,8 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, int points)
       random_h(0, static_cast<int>(grid_height - 1)),
       points_to_win(points) {
         //start the players - to add more players simply emplace back one more Player
-        snakes.emplace_back(Snake(grid_width,grid_height,0));
-        snakes.emplace_back(Snake(grid_width,grid_height,0));
+        players.emplace_back(Player(grid_width,grid_height,0));
+        players.emplace_back(Player(grid_width,grid_height,0));
   PlaceFood();
 }
 
@@ -31,11 +31,11 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
     // Input, Update, Render - the main game loop.
     //controller thread
-    std::thread tController = std::thread(&Controller::HandleInput , controller, std::ref(running), std::ref(snakes)); //creates thread for the controller
+    std::thread tController = std::thread(&Controller::HandleInput , controller, std::ref(running), std::ref(players)); //creates thread for the controller
     //thanks to this post: https://knowledge.udacity.com/questions/428737 for helping with the "std::ref"
     //game update thread
     std::thread tUpdate = std::thread(&Game::Update, this);
-    renderer.Render(food, _wall, _enemy, snakes);
+    renderer.Render(food, _wall, _enemy, players);
     // end of the main game loop
 
     frame_end = SDL_GetTicks();
@@ -47,7 +47,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
     // After every second, update the window title.
     if (frame_end - title_timestamp >= 1000) {
-      renderer.UpdateWindowTitle(snakes, frame_count); //test
+      renderer.UpdateWindowTitle(players, frame_count); //test
       frame_count = 0;
       title_timestamp = frame_end;
     }
@@ -72,7 +72,7 @@ void Game::PlaceFood() {
 
     SDL_Point temp_food {x,y};
 
-    if (!CheckItem(snakes, temp_food)) {
+    if (!CheckItem(players, temp_food)) {
       food.x = temp_food.x;
       food.y = temp_food.y;
       return;
@@ -83,20 +83,20 @@ void Game::PlaceFood() {
 void Game::Update() {
   if (game_over) return;
 
-  for (int i=0; i< snakes.size() ; i++)
+  for (int i=0; i< players.size() ; i++)
   {
-    if (!snakes[i].alive) {
+    if (!players[i].alive) {
       std::cout << "Player " << i << " won! \n";
       game_over = 1;
       return;
     }
   }
 
-  for (auto &i: snakes){
+  for (auto &i: players){
     i.UpdatePosition(_wall);
   }  
   // Check if a player has scored(is on the same place as food)
-      for (auto &i : snakes) {
+      for (auto &i : players) {
         if ((i.head_x == food.x) && (i.head_y == food.y)) {
           i.score++;
           if (i.score >= points_to_win) {
@@ -116,7 +116,7 @@ void Game::CheckEnemy() {
     int index =0;
     for (auto &i: _enemy){
       index++;
-      for (auto &j: snakes) {
+      for (auto &j: players) {
         if ((i.x == j.head_x) && (i.y == j.head_y)) {
           _enemy.erase(_enemy.begin()+index-1); 
           if (j.score > 0)j.score--;
@@ -133,7 +133,7 @@ void Game::PlaceEnemy() {
 
     SDL_Point enemy_point {x,y};
 
-    if (!CheckItem(snakes, enemy_point)) {
+    if (!CheckItem(players, enemy_point)) {
       _enemy.emplace_back(enemy_point);
       return;
     }
@@ -148,16 +148,16 @@ void Game::PlaceWall() {
 
     SDL_Point wall_point = {x,y};
 
-    if (!CheckItem(snakes, wall_point)) {
+    if (!CheckItem(players, wall_point)) {
       _wall.emplace_back(wall_point);
       return;
     }
   }
 }
 
-bool Game::CheckItem(std::vector<Snake> snake, SDL_Point item){
+bool Game::CheckItem(std::vector<Player> player, SDL_Point item){
   bool cant_insert_item = false;
-  for (auto i:snake){
+  for (auto i:player){
     if ((i.head_x == item.x) && (i.head_y == item.y)){
       cant_insert_item = true;
     }

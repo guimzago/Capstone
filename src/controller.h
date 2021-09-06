@@ -1,12 +1,12 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "snake.h"
+#include "player.h"
 
 class Controller {
  public:
-    void SetDirection (Snake &snake , Snake::Direction direction);
-    void HandleInput(bool &running, std::vector<Snake> &snake) ;
+    void SetDirection (Player &player , Player::Direction direction);
+    void HandleInput(bool &running, std::vector<Player> &player) ;
 };
 
 #endif

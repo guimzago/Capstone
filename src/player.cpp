@@ -1,10 +1,10 @@
-#include "snake.h"
+#include "player.h"
 #include <cmath>
 #include <iostream>
 #include "SDL.h"
 
 //update position taking the maze in consideration
-void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
+void Player::UpdatePosition(std::vector<SDL_Point> maze_wall) {
   static bool cant_move;
   switch (direction) {
     case Direction::kUp:
@@ -57,7 +57,7 @@ void Snake::UpdatePosition(std::vector<SDL_Point> maze_wall) {
     break;
   }
 
-  // Wrap the Snake around to the beginning if going off of the screen.
+  // Wrap the Player around to the beginning if going off of the screen.
   head_x = fmod(head_x + grid_width, grid_width);
   head_y = fmod(head_y + grid_height, grid_height);
 }

@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/guimzago/snake/Capstone/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/SnakeGame.dir/all
+all: CMakeFiles/PlayerGame.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/SnakeGame.dir/clean
+clean: CMakeFiles/PlayerGame.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/SnakeGame.dir
+# Target rules for target CMakeFiles/PlayerGame.dir
 
 # All Build rule for target.
-CMakeFiles/SnakeGame.dir/all:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/depend
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/guimzago/snake/Capstone/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target SnakeGame"
-.PHONY : CMakeFiles/SnakeGame.dir/all
+CMakeFiles/PlayerGame.dir/all:
+	$(MAKE) -f CMakeFiles/PlayerGame.dir/build.make CMakeFiles/PlayerGame.dir/depend
+	$(MAKE) -f CMakeFiles/PlayerGame.dir/build.make CMakeFiles/PlayerGame.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/guimzago/snake/Capstone/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target PlayerGame"
+.PHONY : CMakeFiles/PlayerGame.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/SnakeGame.dir/rule: cmake_check_build_system
+CMakeFiles/PlayerGame.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/guimzago/snake/Capstone/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SnakeGame.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PlayerGame.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/guimzago/snake/Capstone/build/CMakeFiles 0
-.PHONY : CMakeFiles/SnakeGame.dir/rule
+.PHONY : CMakeFiles/PlayerGame.dir/rule
 
 # Convenience name for target.
-SnakeGame: CMakeFiles/SnakeGame.dir/rule
+PlayerGame: CMakeFiles/PlayerGame.dir/rule
 
-.PHONY : SnakeGame
+.PHONY : PlayerGame
 
 # clean rule for target.
-CMakeFiles/SnakeGame.dir/clean:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/clean
-.PHONY : CMakeFiles/SnakeGame.dir/clean
+CMakeFiles/PlayerGame.dir/clean:
+	$(MAKE) -f CMakeFiles/PlayerGame.dir/build.make CMakeFiles/PlayerGame.dir/clean
+.PHONY : CMakeFiles/PlayerGame.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
