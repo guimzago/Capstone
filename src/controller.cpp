@@ -3,6 +3,7 @@
 #include "SDL.h"
 #include "player.h"
 
+//sets the direction of the player if the movement is no locked by keeping the key pressed
 void Controller::SetDirection (Player &player , Player::Direction direction) {
   if (player.lock_movement == false) {
     player.speed = 1;

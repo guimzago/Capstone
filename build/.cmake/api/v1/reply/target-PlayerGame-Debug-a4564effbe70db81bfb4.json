@@ -42,7 +42,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-std=c++17 -pthread   -std=c++17"
+					"fragment" : "-std=c++17 -pthread -g   -std=c++17"
 				},
 				{
 					"fragment" : "-std=gnu++17"
@@ -76,7 +76,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-std=c++17 -pthread",
+				"fragment" : "-std=c++17 -pthread -g",
 				"role" : "flags"
 			},
 			{
